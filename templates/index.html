@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            form {
+                background-color: PeachPuff;
+                padding: 10px;
+                margin: 0 auto;
+                width: 800px;
+                font-size: 14px;
+                font-family: fantasy;
+                border-radius: 15px;
+            }
+            .title{
+                width: 600px;
+                color: indigo; 
+                font-size: 34px;
+                font-family: fantasy;
+                margin: 0 auto;
+                padding: 10px;
+            }
+            .error{
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title">USER SIGN UP<h1>
+        <form action="/" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label for='user'>Username:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="user" id="user" pattern="[a-zA-z0-9]{3,20}+"   style="width:300px" value= {{username}} >
+                    <span class="error">{{erruser}}</span>
+                    <td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='pass'>Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" name="pass" id="pass" pattern="[a-zA-z0-9]+"  style="width:300px" value= {{pass1}} >
+                        <span class="error">{{errpass1}}</span>
+                    <td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='vpass'>Validate Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" name="vpass" id="vpass"  pattern="[a-zA-z0-9]+"   style="width:300px" value={{pass2}}>
+                        <span class="error">{{errpass2}}</span>
+                    <td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='email'>Email:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="email" id="email"  style="width:300px" value={{mail}} >
+                        <span class="error">{{errmail}}</span>
+                    <td>
+                </tr>
+                <tr>
+                   <td>
+                    <input type="submit" value="Sing up"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
