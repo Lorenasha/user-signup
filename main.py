@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template
 import cgi
 import os
 import jinja2
@@ -10,8 +10,9 @@ app.config['DEBUG']=True
 
 @app.route("/")
 def display_signup():
-    template=jinja_env.get_template('index.html')
-    return template.render()
+    #template=jinja_env.get_template('index.html')
+    #return template.render()
+    return render_template('index.html')
 
 @app.route("/", methods=["POST"])
 
@@ -61,19 +62,21 @@ def validate_user():
 
 
     if not erruser and not errpass1 and not errpass2 and not errmail:
-        template=jinja_env.get_template('welcome.html')
-        return template.render(username=user, pass1='', errpass1='', pass2='', errpass2='', mail=email, errmail='' )
+        #template=jinja_env.get_template('welcome.html')
+        #return template.render(username=user)
+        return render_template('welcome.html',username=user)
 
     else:
-        template=jinja_env.get_template('index.html')
-        return template.render(username=user, erruser=erruser, pass1='', errpass1=errpass1, pass2='', errpass2=errpass2, mail=email, errmail=errmail )
+        #template=jinja_env.get_template('index.html')
+        #return template.render(username=user, erruser=erruser, pass1='', errpass1=errpass1, pass2='', errpass2=errpass2, mail=email, errmail=errmail )
+        return render_template('index.html',username=user, erruser=erruser, pass1='', errpass1=errpass1, pass2='', errpass2=errpass2, mail=email, errmail=errmail )
 
 
 @app.route("/", methods=["POST"])
 def display_welcome():
-    template=jinja_env.get_template('welcome.html')
-   # return form.format(username='',erruser='',pass1='', errpass1='', pass2='', errpass2='', mail='', errmail='')
-    return template.render()
+    #template=jinja_env.get_template('welcome.html')
+    #return form.format(username='',erruser='',pass1='', errpass1='', pass2='', errpass2='', mail='', errmail='')
+    return template.render('welcome.html')
 
 
 app.run()
