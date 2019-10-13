@@ -69,14 +69,10 @@ def validate_user():
     else:
         #template=jinja_env.get_template('index.html')
         #return template.render(username=user, erruser=erruser, pass1='', errpass1=errpass1, pass2='', errpass2=errpass2, mail=email, errmail=errmail )
-        return render_template('index.html',username=user, erruser=erruser, pass1='', errpass1=errpass1, pass2='', errpass2=errpass2, mail=email, errmail=errmail )
+        #return render_template('index.html',username=user, erruser=erruser, pass1='', errpass1=errpass1, pass2='', errpass2=errpass2, mail=email, errmail=errmail )
+        return render_template('index.html',username=user, erruser=erruser, errpass1=errpass1, errpass2=errpass2, mail=email, errmail=errmail )
 
 
-@app.route("/", methods=["POST"])
-def display_welcome():
-    #template=jinja_env.get_template('welcome.html')
-    #return form.format(username='',erruser='',pass1='', errpass1='', pass2='', errpass2='', mail='', errmail='')
-    return template.render('welcome.html')
 
 
 app.run()
